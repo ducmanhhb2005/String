@@ -1,0 +1,49 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		String t=sc.nextLine();
+		char[] a=s.toCharArray();
+		char[] b=t.toCharArray();
+        TreeSet<Integer> set11=new TreeSet<>();
+        for (int i=0; i<s.length();i++) set11.add((int)a[i]);
+        TreeSet<Integer> set22=new TreeSet<>();
+        for (int i=0; i<t.length();i++) set22.add((int)b[i]);
+        ArrayList<Integer> set1=new ArrayList<>(set11);
+        ArrayList<Integer>set2=new ArrayList<>(set22);
+        LinkedHashSet<Integer> hop=new LinkedHashSet<>();
+        LinkedHashSet<Integer> giao=new LinkedHashSet<>();
+        int left1=0;
+        int left2=0;
+        while (left1<=set1.size()-1&&left2<=set2.size()-1){
+            if (set1.get(left1)<set2.get(left2)) {
+            hop.add(set1.get(left1));
+            left1++;
+            }
+            else if (set1.get(left1)>set2.get(left2)) {
+            hop.add(set2.get(left2));
+            left2++;
+            }
+            else {
+                
+                giao.add(set1.get(left1));
+                hop.add(set1.get(left1));
+                left1++;
+                left2++;
+            }
+        }
+        while (left1<=set1.size()-1) {
+            hop.add(set1.get(left1));
+            left1++;
+        }
+        while (left2<=set2.size()-1){
+            hop.add(set2.get(left2));
+            left2++;
+        }
+        for (int x:giao) System.out.print((char)x);
+        System.out.print("\n");
+        for ( int x:hop) System.out.print((char)x);
+	}
+}
