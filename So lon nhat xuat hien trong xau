@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	String s=sc.nextLine();
+	s+="a";
+	ArrayList<String> arr=new ArrayList<>();
+	String tmp="";
+	for (int i=0; i<s.length();i++){
+	    if (Character.isDigit(s.charAt(i))){
+	        tmp+=s.charAt(i);
+	    }
+	    else {
+	        while (tmp.length()>1&&tmp.charAt(0)=='0'){
+	            tmp=tmp.replaceFirst("0","");
+	        }
+	        arr.add(tmp);
+	        tmp="";
+	    }
+	}
+	Collections.sort(arr, new Comparator<String>(){
+	    public int compare(String o1, String o2){
+	        if (o1.length()!=o2.length()) return o2.length()-o1.length();
+	        else return o2.compareTo(o1);
+	    }
+	});
+	System.out.print(arr.get(0));
+	}
+}
