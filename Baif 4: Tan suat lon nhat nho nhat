@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		String s= sc.nextLine();
+		int[] cnt=new int[256];
+		for (int i=0; i<s.length(); i++){
+		    cnt[(int)s.charAt(i)]++;
+		}
+		int min=(int)1e9;
+		int max=-(int)1e9;
+		char resmax='a';
+		char resmin='a';
+		for (int i=255; i>=0; i--){
+		    if (cnt[i]>=1){
+		        if (max<cnt[i]) {
+		            max=cnt[i];
+		            resmax=(char)i;
+		        }
+		        if (min>cnt[i]){
+		            min=cnt[i];
+		            resmin=(char)i;
+		        }
+		    }
+		}
+		System.out.println(resmax+" "+max);
+		System.out.print(resmin+" "+min);
+	}
+}
