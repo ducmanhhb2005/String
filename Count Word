@@ -1,0 +1,15 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	String s= sc.nextLine();
+	int cnt=0;
+	StringTokenizer st= new StringTokenizer(s);
+	while (st.hasMoreTokens()){
+	    cnt++;
+	    st.nextToken();
+	}
+	System.out.print(cnt);
+	}
+}
