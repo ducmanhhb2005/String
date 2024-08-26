@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		String s= sc.nextLine();
+		int[] cnt=new int[256];
+		int[] print=new int[256];
+		for (int i=0; i<s.length(); i++){
+		    cnt[(int)s.charAt(i)]++;
+		}
+		for (int i=0; i<256; i++){
+		    if (cnt[i]>=1) System.out.println((char)i+" "+cnt[i]);
+		}
+		System.out.print("\n");
+		for (int i=0; i<s.length(); i++){
+		    if (print[(int)s.charAt(i)]==0){
+		        System.out.println(s.charAt(i)+" "+cnt[s.charAt(i)]);
+		        print[(int)s.charAt(i)]=1;
+		    }
+		}
+	}
+}
