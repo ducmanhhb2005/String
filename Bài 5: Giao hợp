@@ -1,3 +1,4 @@
+Way 1: TreeSet
 import java.util.*;
 public class Main
 {
@@ -45,5 +46,33 @@ public class Main
         for (int x:giao) System.out.print((char)x);
         System.out.print("\n");
         for ( int x:hop) System.out.print((char)x);
+	}
+}
+C2: Array
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s1=sc.nextLine();
+		String s2=sc.nextLine();
+		int[] cnt1= new int[256];
+		int[] cnt2=new int[256];
+		for (int i=0; i<s1.length(); i++){
+		    cnt1[s1.charAt(i)]=1;
+		    cnt2[s1.charAt(i)]=1;
+		}
+		for (int i=0;i<s2.length();i++){
+		    if (cnt2[s2.charAt(i)]==1) cnt2[s2.charAt(i)]=2;
+		    else if(cnt2[s2.charAt(i)]==0) cnt1[s2.charAt(i)]=1;
+		    
+		}
+		for (int i=0; i<256; i++) {
+		    if (cnt1[i]!=0) System.out.print((char)i);
+		}
+		System.out.print("\n");
+		for (int i=0; i<256; i++){
+		    if (cnt2[i]==2) System.out.print((char) i);
+		}
 	}
 }
